@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon mask-icon" href="/spring.svg" color="#000000" />
+    <link rel="shortcut icon" href="/spring.svg" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Learn how to add user authentication to Express.js web apps easily." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;family=Inter&amp;family=Space+Grotesk&amp;display=optional" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Spring-Java</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="page-layout">
+            <div class="nav-bar__container">
+                <nav class="nav-bar">
+                    <div class="nav-bar__brand"><a href="/"><img class="nav-bar__logo" src="/spring_logo.svg"
+                                alt="Auth0 shield logo" /></a>
+                    </div>
+                    <div class="nav-bar__tabs"></div>
+                    <div class="nav-bar__actions">
+                        <a class="button button--primary button--compact" sec:authorize="isAuthenticated()" th:href="@{/home}">会員情報</a>
+                        <a class="button button--primary button--compact" th:href="@{/logout}"
+                            sec:authorize="isAuthenticated()">ログアウト</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="page-layout__content">
+                <div class="hero-banner">
+                    <div class="content-layout">
+                        <h1 class="content__title">会員情報</h1>
+                        <div class="content__body">
+                            <div class="profile-grid">
+                                <div class="profile__header"><img class="profile__avatar" th:src="${user.picture}"
+                                        alt="Profile" />
+                                    <div class="profile__headline">
+                                        <h2 class="profile__title"></h2>
+                                        <span class="profile__description" th:text="${username}"></span>
+                                        <span class="profile__description" th:text="${user.email}"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

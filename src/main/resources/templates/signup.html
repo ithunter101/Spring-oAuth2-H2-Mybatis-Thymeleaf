@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon mask-icon" href="/spring.svg" color="#000000" />
+    <link rel="shortcut icon" href="/spring.svg" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Learn how to add user authentication to Java Spring web apps easily." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;family=Inter&amp;family=Space+Grotesk&amp;display=optional" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>トップページ</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="page-layout">
+            <div class="page-layout__content">
+                <div class="normal-banner">
+                    <h2>会員登録ページ</h2>
+                    <br />
+                </div>
+                <div class="normal-banner">
+                    <form th:action="@{/register}" method="post">
+                        <div class="div_center">
+                            <a class="btn info" th:href="@{/signup}"><img
+                                    src="/google.svg" width="20" , height="20" /> Googleでサインアップ</a>
+                        </div>
+                        <div class="div_padding">
+                            <label><b>ユーザー名</b></label></br>
+                            <input type="text" placeholder="ユーザー名" name="userName" required>
+                            <label><b>メールア</b></label></br>
+                            <input readonly type="text" placeholder="メールア" name="email" required th:value="${email}">
+                        </div>
+                        <div class="div_center" th:if="${email} != null">
+                            <button class="btn info" type="submit"><img src="/user.svg" width="26", height="20"/> 会員登録</button>
+                        </div>
+                        <div class="div_center" th:if="${email} == null">
+                            <button class="btn info" disabled type="submit"><img src="/user.svg" width="26", height="20"/>  会員登録</button>
+                        </div>
+                        <div class="div_center" th:if="${existance} == 'true'">すでに会員登録されています。</br>こちらから<a
+                                th:href="@{/loginpage}">ログイン</a>してください。
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+</body>
+
+</html>

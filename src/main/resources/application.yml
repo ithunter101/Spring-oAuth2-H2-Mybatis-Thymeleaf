@@ -1,0 +1,35 @@
+server:
+  port: 8081
+spring:
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings.trace: false
+      settings.web-allow-others: false
+  datasource:
+    url: jdbc:h2:file:./src/main
+    username: sa
+    password:
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+  security:
+    oauth2:
+      client:
+        registration:
+          auth0:
+            client-id: 0gLkzW3foOkqBS6v8zyx21QXdw17seqd
+            client-secret: vmWq6GPBQKGJhsSYukZALNGtPXDYm0GRH0LYZH2K-Lgf7AKdaUn5Nq-ONKz_EJM8
+            scope:
+              - openid
+              - profile
+              - email
+        provider:
+          auth0:
+            # trailing slash is important!
+            issuer-uri: https://dev-qd2rduqus6rgfztd.jp.auth0.com/

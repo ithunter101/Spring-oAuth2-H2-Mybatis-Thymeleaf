@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon mask-icon" href="/spring.svg" color="#000000" />
+    <link rel="shortcut icon" href="spring.svg" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Learn how to add user authentication to Java Spring web apps easily." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;family=Inter&amp;family=Space+Grotesk&amp;display=optional" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>トップページ</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="page-layout">
+            <div class="nav-bar__container">
+                <nav class="nav-bar">
+                    <div class="nav-bar__brand"><a th:href="@{/}"><img class="nav-bar__logo"
+                                src="/spring_logo.svg"
+                                alt="spring logo"/></a>
+                    </div>
+                    <div class="nav-bar__tabs"></div>
+                    <div class="nav-bar__actions">
+                        <a class="button button--primary button--compact" sec:authorize="isAuthenticated()" th:href="@{/home}">会員情報</a>
+                        <a class="button button--primary button--compact" sec:authorize="isAnonymous()" th:href="@{/loginpage}">ログイン</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="page-layout__content">
+                <div class="hero-banner">
+                    <h1 class="hero-banner__headline">Java Springで作成したプロジェクトです。</h1>
+                    <p class="hero-banner__description">これは、&nbsp;<strong>Auth0, H2, MyBatis, Thymeleaf</strong> を使用した Java Spring Web アプリの認証の流れを見せているサンプル アプリケーションです。</p>
+                    <div>
+                        <a class="button button--primary button--compact" th:href="@{/loginpage}"
+                            sec:authorize="isAnonymous()">ログイン</a>
+                        <a class="button button--primary button--compact" th:href="@{/signuppage}"
+                            sec:authorize="isAnonymous()">会員登録</a>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="footer-grid">
+                    <div class="footer-grid__brand">
+                        <div class="footer-brand"><img class="footer-brand__logo"
+                                src="/spring.svg"
+                                alt="spring"/><a class="footer__hyperlink" target="_blank" rel="noopener noreferrer"><span>Java Spring World</span></a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

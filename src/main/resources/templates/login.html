@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon mask-icon" href="/spring.svg" color="#000000" />
+    <link rel="shortcut icon" href="spring.svg" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Learn how to add user authentication to Java Spring web apps easily." />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code&amp;family=Inter&amp;family=Space+Grotesk&amp;display=optional" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>ログインプページ</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="page-layout">
+            <div class="page-layout__content">
+                <div class="normal-banner">
+                    <h2>ログインページ</h2>
+                    <br />
+                </div>
+                <div class="normal-banner">
+                    <div>
+                        <a class="btn info" th:href="@{/login}" sec:isanonymous()><img src="/google.svg" width="20", height="20"/> ログイン</a>
+                        <a class="btn info" th:href="@{/signuppage}"><img src="/user.svg" width="26", height="20"/> 会員登録</a></span>
+                    </div>
+                    <div class="div_padding" th:if="${isExist == 'no'}">このGoogleアカウントでの登録情報はありません。登録したアカウントをご確認の上、再度ログインをお試しください。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
